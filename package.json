@@ -10,6 +10,7 @@
     "lint": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
     "preview": "vite preview"
   },
+  "homepage": "https://dygdigitalsolutions.com/",
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
     "react": "^18.3.1",
