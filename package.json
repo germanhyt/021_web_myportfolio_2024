@@ -1,0 +1,43 @@
+{
+  "name": "my_portfolio_2024",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:css": "postcss src/assets/css/Tailwind.css -o src/assets/css/App.css --watch",
+    "build": "tsc -b && vite build",
+    "lint": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^17.9.0",
+    "eslint-plugin-promise": "^6.4.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "framer-motion": "^11.2.12",
+    "postcss": "^8.4.39",
+    "postcss-cli": "^11.0.0",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.24.0",
+    "tailwindcss": "^3.4.4",
+    "typed.js": "^2.1.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1"
+  }
+}
