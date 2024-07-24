@@ -11,9 +11,9 @@ import AppFooter from "./components/shared/AppFooter";
 import { projectsData } from "./core/data/projects";
 
 const Home = lazy(() => import("./pages/Home"));
-const AboutMe = lazy(() => import("./pages/AboutMe"));
-const Projects = lazy(() => import("./pages/Projects"));
-const Contact = lazy(() => import("./pages/Contact"));
+// const AboutMe = lazy(() => import("./pages/AboutMe"));
+// const Projects = lazy(() => import("./pages/Projects"));
+// const Contact = lazy(() => import("./pages/Contact"));
 const ProjectSingle = lazy(() => import("./pages/ProjectSingle"));
 
 function App() {
@@ -31,9 +31,9 @@ function App() {
             >
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<AboutMe />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/contact" element={<Contact />} />
+                {/* <Route path="/about" element={<AboutMe />} /> */}
+                {/* <Route path="/projects" element={<Projects />} /> */}
+                {/* <Route path="/contact" element={<Contact />} /> */}
                 {projectsData.map((project) => (
                   <Route
                     key={project.id}

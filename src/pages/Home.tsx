@@ -25,13 +25,16 @@ const Home = () => {
           <AppBanner />
 
           <div className="w-full bg-primary-light dark:bg-secondary-dark ">
+            {/* Section Projects */}
             <ProjectsProvider>
               <ProjectsGrid page="home" />
             </ProjectsProvider>
 
-            <SectionAboutMe />
-
+            {/* Section Techs */}
             <SectionTechs />
+
+            {/* Section About Me */}
+            <SectionAboutMe />
           </div>
         </div>
       )}

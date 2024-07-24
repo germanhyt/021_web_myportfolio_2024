@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import Button from "@/components/reusable/Button";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { swalAlertInfo } from "@/core/helpers/SwalHelper";
 
-const selectOptions = [
-  "Web",
-  "Data Analytics",
-  "Mobile",
-  "IOT",
-  "Certification",
-];
+// const selectOptions = [
+//   "Web",
+//   "Data Analytics",
+//   "Mobile",
+//   "IOT",
+//   "Certification",
+// ];
 
 interface IProps {
   onClose: () => void;
@@ -20,9 +21,12 @@ interface IProps {
 const HireMeModal = ({ onClose }: IProps) => {
   const form = useRef<HTMLFormElement>(null!);
 
+  const [isSending, setIsSending] = useState(false);
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setIsSending(true);
     emailjs
       .sendForm(
         "service_988p1xn",
@@ -33,6 +37,13 @@ const HireMeModal = ({ onClose }: IProps) => {
       .then(
         () => {
           (e.target as HTMLFormElement)?.reset(); //reset inputs of form
+
+          void swalAlertInfo(
+            "Mensaje Enviado",
+            "Gracias por tu mensaje, te responderé lo más pronto posible."
+          );
+
+          setIsSending(false);
         },
         (error) => {
           console.log(error.text);
@@ -45,7 +56,7 @@ const HireMeModal = ({ onClose }: IProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="font-general-medium fixed inset-0 z-30 transition-all duration-500"
+      className=" font-general-medium fixed inset-0 z-30 transition-all duration-500"
     >
       {/* Modal Backdrop */}
       <div className="bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"></div>
@@ -55,9 +66,9 @@ const HireMeModal = ({ onClose }: IProps) => {
         <div className="modal-wrapper flex items-center z-30">
           <div className="modal max-w-md mx-5 xl:max-w-xl lg:max-w-xl md:max-w-xl bg-secondary-light dark:bg-primary-dark max-h-screen shadow-lg flex-row rounded-lg relative">
             <div className="modal-header flex justify-between gap-10 p-5 border-b border-ternary-light dark:border-ternary-dark">
-              <h5 className=" text-primary-dark dark:text-primary-light text-xl">
-                ¿Qué tipo de proyecto es de su interés?
-              </h5>
+              <h3 className="pl-5 text-primary-dark dark:text-primary-light text-xl">
+                ¿Alguna consulta o feedback?
+              </h3>
               <button
                 onClick={onClose}
                 className="px-4 font-bold text-primary-dark dark:text-primary-light"
@@ -93,7 +104,7 @@ const HireMeModal = ({ onClose }: IProps) => {
                     aria-label="Email"
                   />
                 </div>
-                <div className="mt-6">
+                {/* <div className="mt-6">
                   <select
                     className="w-full px-5 py-2 border dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
                     id="subject"
@@ -106,7 +117,7 @@ const HireMeModal = ({ onClose }: IProps) => {
                       </option>
                     ))}
                   </select>
-                </div>
+                </div> */}
 
                 <div className="mt-6">
                   <textarea
@@ -117,7 +128,7 @@ const HireMeModal = ({ onClose }: IProps) => {
                     required={true}
                     rows={6}
                     aria-label="Details"
-                    placeholder="Descripción del proyecto"
+                    placeholder="Escribe aqui..."
                     style={{ resize: "none" }}
                   ></textarea>
                 </div>
@@ -131,11 +142,17 @@ const HireMeModal = ({ onClose }: IProps) => {
 									focus:ring-1 focus:ring-indigo-900 
 									rounded-lg mt-6 duration-500"
                 >
-                  <Button
-                    title="Enviar"
-                    type="submit"
-                    aria-label="Send Message"
-                  />
+                  {isSending ? (
+                    <span className="text-white text-center font-medium tracking-wider">
+                      Enviando...
+                    </span>
+                  ) : (
+                    <Button
+                      title="Enviar"
+                      type="submit"
+                      aria-label="Send Message"
+                    />
+                  )}
                 </div>
               </form>
             </div>
@@ -143,14 +160,16 @@ const HireMeModal = ({ onClose }: IProps) => {
               <button
                 onClick={onClose}
                 type="button"
-                className="px-4
-						sm:px-6
-						py-2 bg-gray-600 text-primary-light hover:bg-ternary-dark dark:bg-gray-200 dark:text-secondary-dark dark:hover:bg-primary-light
-						rounded-md
-						focus:ring-1 focus:ring-indigo-900 duration-500"
-                aria-label="Close Modal"
+                className="
+                  px-4
+                  sm:px-6
+                  py-2 bg-gray-600 text-primary-light hover:bg-ternary-dark dark:bg-gray-200 dark:text-secondary-dark dark:hover:bg-ternary-dark dark:hover:text-primary-light
+                  rounded-md
+                  focus:ring-1 focus:ring-indigo-900 duration-500
+                "
+                aria-label="Cerrar Modal"
               >
-                <Button title="Close" />
+                <Button title="Cerrar" />
               </button>
             </div>
           </div>

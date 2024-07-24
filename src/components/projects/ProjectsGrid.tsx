@@ -26,36 +26,40 @@ const ProjectsGrid = ({ page }: IProps) => {
   };
 
   return (
-    <section className="container mx-auto  py-5 sm:py-10 mt-5 sm:mt-10">
+    <section
+      id="projects"
+      className="container mx-auto pt-8 sm:pt-16 mt-5 sm:mt-12"
+    >
       <div className="text-center">
-        <p className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark dark:text-ternary-light">
+        <p className="font-general-medium text-2xl sm:text-3xl  text-ternary-dark dark:text-ternary-light">
           Proyectos realizados
         </p>
       </div>
 
-      <div className="mt-10 sm:mt-16">
+      <div className="mt-8 sm:mt-12">
         <h3
           className="font-general-regular 
                         text-center text-secondary-dark
                         dark:text-ternary-light
                         text-md
                         sm:text-xl
-                        mb-3
+                        
                         "
         >
           Buscar proyectos por título o fltrar por categoría
         </h3>
         <div
           className="
-                        flex
-						flex-col
-						sm:flex-row						
-                        justify-between
-                        border-b border-primary-light
-                        dark:border-secondary-dark
-                        pb-3
-                        gap-3
-                        "
+            mt-12
+            flex
+            flex-col
+            sm:flex-row						
+            justify-between
+            border-b border-primary-light
+            dark:border-secondary-dark
+            pb-3
+            gap-3
+          "
         >
           <div className="flex justify-between gap-2">
             <span

@@ -38,11 +38,14 @@ const AppBanner = () => {
     const typed = new Typed(el.current, {
       strings: [
         "Hola, Soy Germán Huaytalla",
-        "Estudiante de Ingeniería de Sistemas",
-        "Futuro Emprendedor Digital",
-        "Hola, Soy Germán Huaytalla",
+        "Egresado de Ingeniería de Sistemas",
+        "Enfocado en las ramas de...",
+        "Desarrollo Web",
+        "Análisis de Datos",
+        "Cloud Computing",
       ],
       typeSpeed: 90,
+      loop: true,
     });
 
     return () => {

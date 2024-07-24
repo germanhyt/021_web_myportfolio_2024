@@ -8,10 +8,14 @@ import Button from "@/components/reusable/Button";
 import logo from "@/assets/images/logo.svg";
 
 const AppHeader = () => {
+  // HOOKS
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [activeTheme, setTheme] = useThemeSwitcher();
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  // METHODS
+  // Para mostrar y ocultar el menú
   function toggleMenu() {
     if (!showMenu) {
       setShowMenu(true);
@@ -20,6 +24,7 @@ const AppHeader = () => {
     }
   }
 
+  // Para mostrar y ocultar el modal de contratación
   function showHireMeModal() {
     if (!showModal) {
       document
@@ -34,8 +39,7 @@ const AppHeader = () => {
     }
   }
 
-  const [isScrolled, setIsScrolled] = useState(false);
-
+  // Para cambiar el color del header cuando se haga scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
@@ -56,14 +60,15 @@ const AppHeader = () => {
         id="nav"
         className={`w-full fixed top-0 right-0 left-0 backdrop-filter`}
         style={{
-          backgroundColor: isScrolled ? "rgba(128, 128, 128, 0.1)" : "",
           backdropFilter: isScrolled ? "blur(10px)" : "",
+          backgroundColor: isScrolled ? "rgba(128, 128, 128, 0.1)" : "",
           zIndex: 10,
         }}
       >
         <div className="sm:mx-auto top-0 right-0 left-0 z-10 max-w-screen-lg xl:max-w-screen-xl block sm:flex sm:justify-between sm:items-center py-6">
-          {/* Header menu links and small screen hamburger menu */}
+          {/* Small screen, Logo and Theme switcher and hamburguer meny  */}
           <div className="flex justify-between items-center px-4 sm:px-0">
+            {/* Small screen, logo */}
             <div>
               <Link to={`/`}>
                 {activeTheme === "dark" ? (
@@ -71,7 +76,7 @@ const AppHeader = () => {
                     // src="https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697234001/006_Portfolio_Freelance/inicio-logo_aw7c8h.png"
                     src={logo}
                     width={"56px"}
-                    className="w-14"
+                    className="w-14 hover:scale-[1.1] duration-300"
                     alt="Dark Logo"
                   />
                 ) : (
@@ -79,14 +84,14 @@ const AppHeader = () => {
                     // src="https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697234001/006_Portfolio_Freelance/inicio-logo_aw7c8h.png"
                     src={logo}
                     width={"56px"}
-                    className="w-14"
+                    className="w-14 hover:scale-[1.1] duration-300"
                     alt="Dark Logo"
                   />
                 )}
               </Link>
             </div>
 
-            {/* Theme switcher small screen */}
+            {/* Small screen, Theme switcher  */}
             <div
               onClick={() => {
                 // setTheme(activeTheme ?? "")
@@ -103,7 +108,7 @@ const AppHeader = () => {
               )}
             </div>
 
-            {/* Small screen hamburger menu */}
+            {/* Small screen, hamburger menu */}
             <div className="sm:hidden">
               <button
                 onClick={toggleMenu}
@@ -126,7 +131,7 @@ const AppHeader = () => {
             </div>
           </div>
 
-          {/* Header links small screen */}
+          {/* Small screen, Header links  */}
           <div
             className={
               showMenu
@@ -134,27 +139,28 @@ const AppHeader = () => {
                 : "hidden"
             }
           >
-            <Link
-              to={`/projects`}
+            <a
+              href="#projects"
               className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
               aria-label="Projects"
             >
               Proyectos
-            </Link>
-            <Link
-              to={`/about`}
-              className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
-              aria-label="About Me"
-            >
-              Acerca de mi
-            </Link>
-            <Link
-              to={`/contact`}
+            </a>
+            <a
+              href="#techs"
               className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
               aria-label="Contact"
             >
-              Contáctame
-            </Link>
+              Tecnologías
+            </a>
+            <a
+              href="#aboutme"
+              className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+              aria-label="About Me"
+            >
+              Sobre Mi
+            </a>
+            {/* Small screen, button cta */}
             <div className="border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark">
               <span
                 onClick={showHireMeModal}
@@ -166,40 +172,44 @@ const AppHeader = () => {
             </div>
           </div>
 
-          {/* Header links large screen */}
-          <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
-            <Link
+          {/* Large screen, Header links */}
+          <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex pl-0 sm:pl-5 lg:pl-10 xl:pl-32 justify-center items-center shadow-lg sm:shadow-none">
+            {/* <Link
               to={`/`}
               className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
               aria-label="Home"
             >
               Inicio
-            </Link>
-            <Link
-              to={`/projects`}
-              className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            </Link> */}
+            <a
+              href="#projects"
+              className="relative block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
               aria-label="Projects"
             >
-              Proyectos
-            </Link>
-            <Link
-              to={`/about`}
-              className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
-              aria-label="About Me"
-            >
-              Acerca de mi
-            </Link>
-            <Link
-              to={`/contact`}
-              className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+              <span className="header-links-item" />
+              <span className="z-50 relative">Proyectos</span>
+            </a>
+            <a
+              href="#techs"
+              className="relative block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
               aria-label="Contact"
             >
-              Contacto
-            </Link>
+              <span className="header-links-item" />
+              <span className="z-50 relative">Tecnologías</span>
+            </a>
+            <a
+              href="#aboutme"
+              className="relative block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+              aria-label="About Me"
+            >
+              <span className="header-links-item" />
+              <span className="z-50 relative">Sobre Mi</span>
+            </a>
           </div>
 
           {/* Header right section buttons */}
           <div className="hidden sm:flex justify-between items-center flex-col md:flex-row">
+            {/* Large screen, button cta */}
             <div className="hidden md:flex">
               <span
                 onClick={showHireMeModal}
@@ -210,19 +220,19 @@ const AppHeader = () => {
               </span>
             </div>
 
-            {/* Theme switcher large screen */}
+            {/* Large screen,  Theme switcher  */}
             <div
               onClick={() => {
                 setTheme(activeTheme);
                 // window.location.reload();
               }}
               aria-label="Theme Switcher"
-              className="ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
+              className="ml-8 bg-primary-light dark:bg-ternary-dark p-3 dark:hover:bg-secondary-dark shadow-sm rounded-xl cursor-pointer"
             >
               {activeTheme === "dark" ? (
                 <FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
               ) : (
-                <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
+                <FiSun className="text-gray-200 hover:text-gray-50 text-xl " />
               )}
             </div>
           </div>

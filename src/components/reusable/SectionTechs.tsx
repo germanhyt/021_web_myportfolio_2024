@@ -19,7 +19,7 @@ function SectionTechs() {
   };
 
   return (
-    <div className="container mx-auto">
+    <section id="techs" className="container mx-auto">
       <div className="px-10 pt-12 pb-20 mt-24 sm:mt-32 dark:bg-primary-dark shadow-md rounded-lg">
         <div className="w-full flex justify-center items-center py-4 sm:py-8">
           <h3 className="font-semibold text-base sm:text-xl dark:text-primary-light">
@@ -107,7 +107,7 @@ function SectionTechs() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
