@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import ProjectSingle from "./ProjectSingle";
 import { ProjectsContext } from "@/core/hooks/context/ProjectsContext";
@@ -18,6 +18,12 @@ const ProjectsGrid = ({ page }: IProps) => {
     setSelectProject,
     selectProjectsByCategory,
   } = useContext(ProjectsContext);
+
+  const [projectsquantity, setProjectProjectsquantity] = useState<number>(6);
+
+  const handleAddProjects = () => {
+    setProjectProjectsquantity(projectsquantity + 6);
+  };
 
   return (
     <section className="container mx-auto  py-5 sm:py-10 mt-5 sm:mt-10">
@@ -123,7 +129,7 @@ const ProjectsGrid = ({ page }: IProps) => {
             ))
           : page === "home"
           ? projects
-              .filter((_p, index) => index < 6)
+              .filter((_p, index) => index < projectsquantity)
               .map((project) => (
                 <ProjectSingle
                   title={project.title}
@@ -142,6 +148,15 @@ const ProjectsGrid = ({ page }: IProps) => {
                 key={project.id}
               />
             ))}
+      </div>
+
+      <div className="mt-8 sm:mt-10 flex justify-center">
+        <button
+          className="font-general-medium flex items-center px-4 py-2 rounded-lg shadow-lg hover:shadow-xl bg-[#0123E7] hover:bg-indigo-600 focus:ring-1 focus:ring-indigo-900 text-white text-lg sm:text-xl duration-300"
+          onClick={handleAddProjects}
+        >
+          Más Proyectos
+        </button>
       </div>
     </section>
   );
