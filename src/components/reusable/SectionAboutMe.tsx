@@ -11,7 +11,7 @@ function SectionAboutMe() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className="top-1 sm:col-span-2 py-4 sm:py-6">
-            <p className="dark:text-primary-light">
+            <p className="text-center sm:text-start dark:text-primary-light">
               Buen día, soy Germán, recién egresado de la carrera de sistemas,
               estoy motivado en unirme a su equipo, la cual me permita
               desarollar profesionalmente. Mi meta no es simplemente acumular
