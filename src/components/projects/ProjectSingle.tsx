@@ -20,10 +20,10 @@ const ProjectSingle = ({ title, category, image, numberproject }: IProps) => {
       }}
     >
       <Link
-        to={`/projects/single-project/${numberproject}`}
+        to={`/projects/${numberproject}`}
         aria-label="Single Project"
       >
-        <div className="rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.1] transition-all duration-500 cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
+        <div className="min-h-[300px] sm:min-h-[325px] xl:min-h-[375px] rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.1] transition-all duration-500 cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
           <div>
             <img
               src={image}

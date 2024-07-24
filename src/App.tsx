@@ -8,7 +8,13 @@ import "@/assets/css/Customstyles.css";
 import { lazy, Suspense } from "react";
 import AppFooter from "./components/shared/AppFooter";
 
+import { projectsData } from "./core/data/projects";
+
 const Home = lazy(() => import("./pages/Home"));
+const AboutMe = lazy(() => import("./pages/AboutMe"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Contact = lazy(() => import("./pages/Contact"));
+const ProjectSingle = lazy(() => import("./pages/ProjectSingle"));
 
 function App() {
   return (
@@ -20,9 +26,21 @@ function App() {
           <Router>
             <AppHeader />
             <ScrollToTop />
-            <Suspense fallback={""}>
+            <Suspense
+              fallback={<span className="text-center">cargando...</span>}
+            >
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutMe />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+                {projectsData.map((project) => (
+                  <Route
+                    key={project.id}
+                    path={`/projects/${project.id}`}
+                    element={<ProjectSingle number={project.id} />}
+                  />
+                ))}
               </Routes>
             </Suspense>
             <AppFooter />

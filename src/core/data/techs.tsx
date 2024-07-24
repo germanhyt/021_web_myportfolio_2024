@@ -1,37 +1,6 @@
 export const techData = [
   {
     id: 1,
-    name: "Data Analytics",
-    images: [
-      {
-        id: 101,
-        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697215470/006_Portfolio_Freelance/img-pbi_k2npmh.png",
-        name: "Power BI",
-      },
-      {
-        id: 102,
-        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697246132/006_Portfolio_Freelance/img-office_x8ncxv.png",
-        name: "Office",
-      },
-      {
-        id: 103,
-        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697246132/006_Portfolio_Freelance/img-sqlserver_edkvvu.png",
-        name: "SQL Server",
-      },
-      {
-        id: 104,
-        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697246131/006_Portfolio_Freelance/img-python_sskb0z.png",
-        name: "Python",
-      },
-      {
-        id: 105,
-        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1699815164/006_Portfolio_Freelance/image_136_fmm7ci.svg",
-        name: "Tableau",
-      },
-    ],
-  },
-  {
-    id: 2,
     name: "Web Development",
     images: [
       {
@@ -83,6 +52,37 @@ export const techData = [
         id: 210,
         link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1699808909/006_Portfolio_Freelance/unjropqw3y0lm282pivg.svg",
         name: ".NET",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Data Analytics",
+    images: [
+      {
+        id: 101,
+        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697215470/006_Portfolio_Freelance/img-pbi_k2npmh.png",
+        name: "Power BI",
+      },
+      {
+        id: 102,
+        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697246132/006_Portfolio_Freelance/img-office_x8ncxv.png",
+        name: "Office",
+      },
+      {
+        id: 103,
+        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697246132/006_Portfolio_Freelance/img-sqlserver_edkvvu.png",
+        name: "SQL Server",
+      },
+      {
+        id: 104,
+        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1697246131/006_Portfolio_Freelance/img-python_sskb0z.png",
+        name: "Python",
+      },
+      {
+        id: 105,
+        link: "https://res.cloudinary.com/dz0ajaf3i/image/upload/v1699815164/006_Portfolio_Freelance/image_136_fmm7ci.svg",
+        name: "Tableau",
       },
     ],
   },

@@ -10,6 +10,9 @@ export default {
     "././core/**/*.{html,js}",
   ],
   theme: {
+    fontFamily: {
+      barlow: ["Barlow", "sans-serif"],
+    },
     extend: {
       colors: {
         "primary-light": "#F7F8FC",
